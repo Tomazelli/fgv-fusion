@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-zu(r0q_bg&hlj8j2&rd1@7i05(t15_ze683$*@(ly6-l@1%7v*
 DEBUG = False
 
 # ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['https://fgv-fusion.herokuapp.com']
+ALLOWED_HOSTS = ['fgv-fusion.herokuapp.com']
 
 
 # Application definition
