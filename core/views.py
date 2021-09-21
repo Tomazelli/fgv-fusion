@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 
 from .models import Service, Member
-from .forms import ContactForm
+from .forms import ContactForm, MemberModelForm
 
 
 class IndexView(FormView):
@@ -25,6 +25,27 @@ class IndexView(FormView):
     def form_invalid(self, form, *args, **kwargs):
         messages.error(self.request, 'Erro ao enviar o e-mail! :(')
         return super(IndexView, self).form_invalid(form, *args, **kwargs)
+
+
+class AddMemberView(FormView):
+
+    template_name = 'add-member.html'
+    form_class = MemberModelForm
+    success_url = reverse_lazy('add-member')
+
+    def get_context_data(self, **kwargs):
+        context = super(AddMemberView, self).get_context_data(**kwargs)
+        context['team'] = Member.objects.all()
+        return context
+
+    def form_valid(self, form, *args, **kwargs):
+        form.save()
+        messages.success(self.request, 'Membro da equipe registrado com sucesso!')
+        return super(AddMemberView, self).form_valid(form, *args, **kwargs)
+
+    def form_invalid(self, form, *args, **kwargs):
+        messages.error(self.request, 'Erro ao registrar o membro da equipe! :(')
+        return super(AddMemberView, self).form_invalid(form, *args, **kwargs)
 
 
 class Error404View(TemplateView):

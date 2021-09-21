@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core'
+
+    'core',
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [
@@ -89,9 +91,11 @@ DATABASES = {
 }
 """
 
+# """
 DATABASES = {
     'default': dj_database_url.config()
 }
+# """
 
 
 # Password validation

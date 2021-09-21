@@ -1,6 +1,8 @@
 from django import forms
 from django.core.mail.message import EmailMessage
 
+from .models import Member
+
 
 class ContactForm(forms.Form):
     name = forms.CharField(label='Nome', max_length=100)
@@ -24,3 +26,9 @@ class ContactForm(forms.Form):
             headers={'Reply-to': email}
         )
         mail.send()
+
+
+class MemberModelForm(forms.ModelForm):
+    class Meta:
+        model = Member
+        fields = ['name', 'role', 'bio', 'image', 'facebook', 'twitter', 'instagram']
