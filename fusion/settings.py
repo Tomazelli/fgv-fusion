@@ -27,18 +27,13 @@ SECRET_KEY = 'django-insecure-zu(r0q_bg&hlj8j2&rd1@7i05(t15_ze683$*@(ly6-l@1%7v*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://fgv-fusion.herokuapp.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'core',
-    'bootstrap4',
-
-    'django_adminlte',
-    'django_adminlte_theme',
-    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'core',
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [

@@ -36,6 +36,7 @@ class AddMemberView(FormView):
     def get_context_data(self, **kwargs):
         context = super(AddMemberView, self).get_context_data(**kwargs)
         context['team'] = Member.objects.all()
+        context['user'] = str(self.request.user)
         return context
 
     def form_valid(self, form, *args, **kwargs):
